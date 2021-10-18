@@ -41,6 +41,29 @@ git --version
 Сохранив изменения, можно ввести команду ___git log___, которая выведет историю изменений с именами сохранений (строка начинается с "commit"). Чтобы переместиться между двумя имеющимися в репозитории сохранении, нужно ввести команду ___git checkout (первые 4 символа имени сохранения)___.
 
 # Журнал изменений
+
+### Взято [тут](https://git-scm.com/docs/git-log).
+
+Shows the commit logs.
+
+List commits that are reachable by following the parent links from the given commit(s), but exclude commits that are reachable from the one(s) given with a ^ in front of them. The output is given in reverse chronological order by default.
+
+You can think of this as a set operation. Commits reachable from any of the commits given on the command line form a set, and then commits reachable from any of the ones given with ^ in front are subtracted from that set. The remaining commits are what comes out in the command’s output. Various other options and paths parameters can be used to further limit the result.
+Thus, the following command:
+
+$ git log foo bar ^baz
+means "list all the commits which are reachable from foo or bar, but not from baz".
+
+A special notation "<commit1>..<commit2>" can be used as a short-hand for "^<commit1> <commit2>". For example, either of the following may be used interchangeably:
+
+$ git log origin..HEAD
+$ git log HEAD ^origin
+Another special notation is "<commit1>…​<commit2>" which is useful for merges. The resulting set of commits is the symmetric difference between the two operands. The following two commands are equivalent:
+
+$ git log A B --not $(git merge-base --all A B)
+$ git log A...B
+The command takes options applicable to the git-rev-list[1] command to control what is shown and how, and options applicable to the git-diff[1] command to control how the changes each commit introduces are shown.
+
 # Ветки в git
 # Слияние веток и решение конфликтов
 # Удаление веток
