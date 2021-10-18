@@ -63,6 +63,13 @@ Another special notation is "<commit1>…​<commit2>" which is useful for merge
 $ git log A B --not $(git merge-base --all A B)
 $ git log A...B
 The command takes options applicable to the git-rev-list[1] command to control what is shown and how, and options applicable to the git-diff[1] command to control how the changes each commit introduces are shown.
+### Инфа от себя.
+Команда ___git log___ открывает журнал изменений, где указано, например:
+commit ff9efc03fdc2b15bd83b2852c650d4072ce3445a - имя изменения, используя которое в команде ___git checkout___, можно переместиться в интересуемую версию репозитория.
+
+Author: Роман Ахметов <roman3202@gmail.com> - имя автора, создавшего изменение.
+
+Date:   Mon Oct 18 10:54:02 2021 +0300 - дата в время сохдания изменения.
 
 # Ветки в git
 # Слияние веток и решение конфликтов
